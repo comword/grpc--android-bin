@@ -1,2 +1,5 @@
 # grpc--android-bin
-grpc c++ prebuilt binary for Android
+
+gRPC c++ prebuilt binary for Android
+
+v1.38.1
