@@ -52,4 +52,15 @@ popd
 build x86_64
 build arm64-v8a
 
+pushd $GRPC_ROOT/third_party/abseil-cpp
+find ./absl -name "*.h" | tar -cf headers.tar -T -
+if [ ! -f headers.tar ]; then
+  log "headers.tar not created not error given"
+  exit 1
+fi
+mv headers.tar $DIST_DIR
+cd $DIST_DIR
+tar xvf headers.tar -C include
+rm headers.tar
+
 #ANDROID_NDK=~/Library/Android/sdk/ndk/21.4.7075529 ANDROID_SDK_ROOT=~/Library/Android/sdk GRPC_ROOT=~/gits/grpc/ ./build.sh
